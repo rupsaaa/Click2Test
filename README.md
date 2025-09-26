@@ -59,6 +59,15 @@ Click2Test is a Java Swing & AWT–based online test application that provides a
 ---
 
 ## 🖥️ Screenshots
+<img width="1216" height="985" alt="welcome panel" src="https://github.com/user-attachments/assets/14df6dcb-e062-4e3f-83a1-4c0ac8e2c197" />
+
+<img width="1919" height="1017" alt="Screenshot 2025-09-26 164344" src="https://github.com/user-attachments/assets/ca1de7f1-5250-4565-ab45-2bdde05451d8" />
+
+<img width="1919" height="1016" alt="Screenshot 2025-09-26 164520" src="https://github.com/user-attachments/assets/fc3c5cd1-9008-4f93-9043-358d0da4a6bb" />
+
+<img width="1916" height="1016" alt="Screenshot 2025-09-26 164632" src="https://github.com/user-attachments/assets/c71c8158-93bd-4ff6-8ca9-c04bc35f2d28" />
+
+<img width="1919" height="1018" alt="Screenshot 2025-09-26 164652" src="https://github.com/user-attachments/assets/4acff67b-44f3-40fe-9b8d-bbf4ee3fadc0" />
 
 
 ---
