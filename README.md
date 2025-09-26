@@ -89,14 +89,14 @@ Click2Test is a Java Swing & AWT–based online test application that provides a
 - Clone this repository:
 
 ```bash
- git clone https://github.com/your-username/click2test.git
+ git clone https://github.com/rupsaaa/Click2Test.git
  ```
 
 
 - Navigate to the project folder:
 
 ```bash 
-cd click2test
+cd Click2Test
 ```
 
 
