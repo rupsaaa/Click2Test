@@ -15,7 +15,7 @@ public class Click2Test extends JFrame implements ActionListener {
     JButton[] qButtons; // navigation buttons for questions
 
     Timer timer;
-    int totalTime = 2 * 60;
+    int totalTime = 5 * 60;
     String[][] questions = {
             {"1. Which keyword is used to inherit a class in Java?", "this", "super", "extends", "implements", "C"},
             {"2. Which of these is not a Java feature?", "Object-oriented", "Use of pointers", "Portable", "Robust", "B"},
@@ -64,7 +64,7 @@ public class Click2Test extends JFrame implements ActionListener {
         welcomePanel.add(timerLabel);
 
         String instructions = "<html><b>GENERAL INSTRUCTIONS:</b><br><br>" +
-                "• You will have 2 minutes to complete the test.<br>" +
+                "• You will have 5 minutes to complete the test.<br>" +
                 "• There are 15 questions.<br>" +
                 "• Each question carries 1 point.No negative marking.<br>" +
                 "• The right side navigation panel consists of the all the question numbers.<br>" +
