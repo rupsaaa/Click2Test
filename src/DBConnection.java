@@ -6,7 +6,7 @@ public class DBConnection {
 
     private static final String URL = "jdbc:mysql://localhost:3308/click2test_db";
     private static final String USER = "root";
-    private static final String PASSWORD = "Rupsa@2004";
+    private static final String PASSWORD = "YOUR_PASSWORD";
 
     public static Connection getConnection() {
         try {
