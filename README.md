@@ -102,7 +102,7 @@ This project is ideal for academic demonstrations, mini-projects, and understand
 Click2Test/
 │── Click2Test.java        # Main application
 │── StudentDetailsUI.java  # Login UI
-│── ProgressBarScreen.java # Loading screen
+│── LoaderScreen.java      # Loading screen
 │── DBConnection.java      # Database connection
 │── Question.java          # Question model
 │── README.md
@@ -196,7 +196,7 @@ javac *.java
 Run:
 
 ```bash
-java ProgressBarScreen
+java Click2Test
 ```
 
 ---
