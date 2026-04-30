@@ -204,10 +204,10 @@ public class Click2Test extends JFrame implements ActionListener {
 
         add(mainPanel);
         cardLayout.show(mainPanel, "welcome");
-        getStudentDetails();
+       // getStudentDetails();
         setVisible(true);
     }
-    void getStudentDetails() {
+   /* void getStudentDetails() {
 
         JTextField nameField = new JTextField();
         JTextField rollField = new JTextField();
@@ -237,7 +237,7 @@ public class Click2Test extends JFrame implements ActionListener {
         } else {
             System.exit(0);
         }
-    }
+    }*/
 
     void startTimer() {
         timer = new Timer(1000, e -> {
@@ -546,7 +546,7 @@ public class Click2Test extends JFrame implements ActionListener {
     public static void main(String[] args) {
 
 
-            new Click2Test();
+            new LoaderScreen();
         }
     }
 
