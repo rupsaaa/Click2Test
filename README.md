@@ -1,129 +1,230 @@
-# 📘 Click2Test: An Online Test Application
 
-Click2Test is a Java Swing & AWT–based online test application that provides an interactive multiple-choice exam environment with a timer, navigation panel, and automatic result evaluation.
+
+# 🎯 Click2Test – Java Online Test Application
+
+## 📌 Introduction
+
+**Click2Test** is a desktop-based online examination system developed using Java Swing. It simulates a real-time test environment where users can attempt MCQ-based questions, track progress, and receive instant results. The system also includes student authentication, timer functionality, feedback collection, and database integration.
+
+This project is ideal for academic demonstrations, mini-projects, and understanding GUI + database integration in Java.
 
 ---
 
 ## 🚀 Features
 
-## 👤 User Input Panel
-- Prompts user to enter Name and Roll Number before starting the test
-- Ensures valid input before proceeding
-## 📋 Welcome Panel
-- Displays exam instructions
-- Includes a confirmation checkbox (exam starts only when checked)
-- Start button enabled only after confirmation
-## 🧠 Exam Panel
-- Timer starts as soon as the exam begins
-- Fetches 15 random questions from database (no repetition per test)
-- Questions displayed in MCQ format with four options (radio buttons)
-- Right-side navigation panel with question number:
-     > 🟩 Green → Attempted
-      🟥 Red → Visited but Unattempted
-      ⬜ Grey → Not Visited
-- Navigation buttons at the bottom:
-   > 🟨 Previous – go to previous question
-🟦 Next – move to next question
-🟥 Submit – end the exam and view results
-## ⏱️ Timer Feature
-- 15-minute countdown timer
-- Auto-submits test when time expires
-- Displays alert → “Time’s up!”
-## 📊 Result Panel
-- Displays:
-   > ✅ Score
-📊 Total questions
-✍️ Questions attempted
-✔️ Correct answers
-❌ Wrong answers
-- Result is automatically shown after submission or timeout
-## 💾 Database Integration
-- Questions are dynamically loaded from SQL database using JDBC
-- Stores student details and scores after test submission
-## ⭐ Feedback & Rating Panel
-- Star-based rating system (1–5 stars)
-- Dynamic rating labels (Worst → Excellent)
-- Text area for user feedback
-- Submit feedback button with confirmation message
+### 👤 Student Authentication
 
+* User enters **Name** and **Roll Number**
+* Input validation:
+
+  * Name → Only alphabets allowed
+  * Roll Number → Exactly 6 digits
+* Prevents duplicate roll numbers
+* Detects previous attempts and asks:
+
+  > *“You have already taken the test. Do you want to retake?”*
 
 ---
 
-## 🖥️ Screenshots
+### ⏳ Progress Bar (Startup UX)
 
-<img width="334" height="214" alt="Screenshot 2026-04-23 125238" src="https://github.com/user-attachments/assets/e2901575-7b3f-492f-880e-354927659b78" />
-
-<img width="1920" height="1080" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/88ba8c00-efdf-4fbd-b5a8-34732095e5bf" />
-
-<img width="1920" height="1080" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/2f6f6fcb-3850-4b16-9fe2-7b0d6fc2d846" />
-
-<img width="1920" height="1080" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/26a9d3a6-4952-4379-b104-e1393323a924" />
-
-<img width="1920" height="1080" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/53d9a0c9-cb67-4fa1-b181-37749ffb69ee" />
+* Loading screen with animated progress bar
+* Smooth transition to login window
 
 ---
 
+### 📋 Instruction Panel
 
-## 🛠️ Tech Stack
+* Displays exam rules clearly
+* Start button enabled only after confirmation checkbox
 
-- Java
-
-- Swing (GUI framework)
-
-- AWT (GUI components)
-
-- JDBC (Database Connection)
-
-- MySQL / SQL Database
-  
 ---
 
-## ⚡ How to Run
+### 📝 Test Interface
 
-- Clone this repository:
+* MCQ-based questions (loaded from database)
+* Navigation:
+
+  * Next / Previous buttons
+  * Question palette (right side)
+* Color indicators:
+
+  * 🟩 Attempted
+  * 🟥 Visited but not attempted
+  * ⬜ Not visited
+
+---
+
+### ⏱ Timer
+
+* 15-minute countdown timer
+* Auto-submit when time ends
+
+---
+
+### 📊 Result System
+
+* Displays:
+
+  * Total Questions
+  * Attempted
+  * Correct
+  * Wrong
+* Score saved to database
+
+---
+
+### ⭐ Feedback System
+
+* 5-star rating system
+* Emoji-based experience indicator
+* Text feedback submission
+
+---
+
+## 🛠 Tech Stack
+
+| Technology   | Usage                 |
+| ------------ | --------------------- |
+| Java (Swing) | GUI Development       |
+| AWT          | Event Handling        |
+| JDBC         | Database Connectivity |
+| MySQL        | Data Storage          |
+| SQL          | Query Execution       |
+
+---
+
+## 🗂 Project Structure
+
+```
+Click2Test/
+│── Click2Test.java        # Main application
+│── StudentDetailsUI.java  # Login UI
+│── ProgressBarScreen.java # Loading screen
+│── DBConnection.java      # Database connection
+│── Question.java          # Question model
+│── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Prerequisites
+
+* Java JDK (8 or above)
+* MySQL Server
+* IDE (IntelliJ / Eclipse / VS Code)
+
+---
+
+### 2️⃣ Clone the Repository
 
 ```bash
- git clone https://github.com/rupsaaa/Click2Test.git
- ```
-
-
-- Navigate to the project folder:
-
-```bash 
+git clone https://github.com/rupsaaa/Click2Test.git
 cd Click2Test
 ```
 
+---
 
-- Compile the program:
+### 3️⃣ Setup Database
 
-```bash
-javac Click2Test.java
+#### Create Database
+
+```sql
+CREATE DATABASE click2test_db;
+USE click2test_db;
 ```
 
+#### Create Questions Table
 
-- Run the application:
+```sql
+CREATE TABLE questions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question_text TEXT,
+    option_a VARCHAR(255),
+    option_b VARCHAR(255),
+    option_c VARCHAR(255),
+    option_d VARCHAR(255),
+    correct_option CHAR(1)
+);
+```
 
-```bash
-java Click2Test
+#### Create Results Table
+
+```sql
+CREATE TABLE results (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    roll_no VARCHAR(6),
+    score INT
+);
+```
+
+#### (Optional but Recommended) Prevent Duplicate Roll Numbers
+
+```sql
+ALTER TABLE results ADD UNIQUE (roll_no);
 ```
 
 ---
 
+### 4️⃣ Configure Database Connection
+
+Edit your `DBConnection.java`:
+
+```java
+Connection con = DriverManager.getConnection(
+    "jdbc:mysql://localhost:3306/click2test",
+    "root",
+    "your_password"
+);
+```
+
+---
+
+### 5️⃣ Run the Application
+
+Compile:
+
+```bash
+javac *.java
+```
+
+Run:
+
+```bash
+java ProgressBarScreen
+```
+
+---
+
+## 🎥 Demo
+
+
+
+
+
+
+
+
+---
 
 ## 📌 Future Enhancements
 
-- Convert to Spring Boot (REST API based system)
-- Web-based version (React + Backend)
-- Admin panel to manage questions
-- Store feedback in database
+* Admin panel for adding questions
+* Leaderboard system
+* Subject-wise tests
+* Online deployment (Web version)
+* User authentication with login/signup
 
 ---
 
+## 🤝 Contribution
 
-## 🏆 Acknowledgements
-
-This project was created by me to practice Java Swing & AWT concepts such as event handling, layout management, and GUI-based test applications.
+Feel free to fork this repo and improve features. Pull requests are welcome!
 
 ---
+
 
 
